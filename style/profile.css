@@ -1,0 +1,275 @@
+/* --- Profile Page Base Styles --- */
+.profile-page-container {
+    max-width: 1200px;
+    margin: 30px auto 80px;
+    padding: 0 20px;
+    font-family: 'Inter', sans-serif;
+}
+
+.page-heading {
+    font-family: 'Poetsen One', sans-serif;
+    text-align: center;
+    color: #414148; /* A dark teal/green that fits the theme */
+    margin-bottom: 40px;
+    font-size: 2.5rem;
+    padding: 15px;
+    border-bottom: 3px solid #DCEEFB;
+}
+
+/* --- Layout Grid --- */
+.profile-card-layout {
+    display: grid;
+    grid-template-columns: 300px 1fr; /* Sidebar fixed width, details takes rest */
+    gap: 30px;
+}
+
+/* --- Sidebar Styles (Left Column) --- */
+.profile-sidebar {
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    text-align: center;
+}
+
+/* --- Avatar Section --- */
+.avatar-container {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 20px;
+}
+
+.profile-avatar {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid #DCEEFB; /* Light blue border for freshness */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.edit-avatar-btn {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    background-color: #2eb535;
+    color: white;
+    border: 3px solid #ffffff;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s, transform 0.2s;
+}
+.edit-avatar-btn:hover {
+    background-color: rgb(16, 138, 22);
+    transform: scale(1.05);
+}
+
+.user-display-name {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.user-role-tag {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+.role-buyer {
+    background-color: #E6F7F0; /* Light green */
+    color: #007A5A; /* Dark green text */
+}
+.role-seller {
+    background-color: #FFF2E6; /* Light orange */
+    color: #D46B08; /* Dark orange text */
+}
+
+.user-joined span {
+    font-weight: 600;
+    color: #555;
+    font-size: 0.95rem;
+}
+
+/* --- Financial Quick Stats --- */
+.quick-stats-card {
+    margin-top: 30px;
+    padding: 15px;
+    border-top: 1px dashed #ccc;
+    text-align: left;
+}
+.quick-stats-card h3 {
+    font-size: 1.1rem;
+    color: #333;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #E6F7F0;
+    padding-bottom: 5px;
+}
+.stat-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    border-bottom: 1px dotted #eee;
+    font-size: 1rem;
+}
+.stat-label {
+    color: #555;
+}
+.stat-value {
+    font-weight: bold;
+}
+.stat-value.earned {
+    color: #007A5A; /* Success green */
+}
+.stat-value.spent {
+    color: #CC5200; /* Warm orange for spending */
+}
+.stat-action-link {
+    margin-top: 15px;
+    text-align: center;
+}
+.theme-link {
+    color: #218380;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s;
+}
+.theme-link:hover {
+    color: #007A5A;
+    text-decoration: underline;
+}
+
+
+/* --- Main Details Section (Right Column) --- */
+.profile-details {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+.profile-details h2 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 25px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+.detail-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px 30px;
+    margin-bottom: 30px;
+}
+
+.detail-item {
+    font-size: 1rem;
+    padding: 8px 0;
+    border-bottom: 1px dashed #eee;
+}
+.detail-item strong {
+    display: block;
+    color: #888;
+    font-weight: 500;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+.detail-item span {
+    display: block;
+    color: #333;
+    font-weight: 600;
+    line-height: 1.5;
+}
+.detail-full-width {
+    grid-column: 1 / -1;
+}
+
+.status-active {
+    color: #00a136;
+    font-weight: 700 !important;
+}
+.status-inactive {
+    color: #D46B08;
+}
+
+/* --- Action Buttons --- */
+.profile-actions {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #f0f0f0;
+    display: flex;
+    gap: 15px;
+    justify-content: flex-start;
+}
+
+.btn-primary, .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.2s, transform 0.1s;
+}
+.btn-primary i, .btn-secondary i {
+    margin-right: 8px;
+}
+
+.btn-primary {
+    background: linear-gradient(90deg, #42b0fe 0%, #339ce7 100%);
+    color: white;
+    border: 2px solid #278fda;
+}
+.btn-primary:hover {
+    background: linear-gradient(270deg, #42b0fe 0%, #339ce7 100%);
+    transform: translateY(-1px);
+}
+
+.btn-secondary {
+    background: linear-gradient(90deg, #DCEEFB 0%, #def1ff 100%);
+    color: #2d92db;
+    border: 2px solid #2d92db;
+}
+.btn-secondary:hover {
+    background-color: #dcfbdf;
+    transform: translateY(-1px);
+}
+
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 900px) {
+    .profile-card-layout {
+        grid-template-columns: 1fr; /* Stack layout on smaller screens */
+    }
+    .profile-sidebar {
+        order: -1; /* Place sidebar at the top */
+    }
+    .profile-details {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    .page-heading {
+        font-size: 2rem;
+    }
+    .detail-grid {
+        grid-template-columns: 1fr; /* Single column for all details */
+    }
+    .profile-actions {
+        flex-direction: column;
+        gap: 10px;
+    }
+}

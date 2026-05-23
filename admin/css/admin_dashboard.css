@@ -1,0 +1,737 @@
+/* ADMIN DASHBOARD STYLES - Light Theme Glassmorphism (Responsive) */
+
+/* --- VARIABLES (Light Theme) --- */
+:root {
+    --sidebar-width: 250px; 
+    --header-height: 80px;
+    
+    /* Light Theme Colors */
+    --color-bg-base: #f4f7f6; /* Very light, slightly off-white background */
+    --color-brand-primary: #1abc9c; /* Mint/Green Accent (Brand Color) */
+    --color-brand-secondary: #2c3e50; /* Dark text/primary elements */
+    
+    /* Glass Colors - Lighter, softer glass */
+    --glass-bg-light: rgba(255, 255, 255, 0.8); /* Highly transparent white */
+    --glass-bg-hover: rgba(245, 245, 245, 0.95); /* Near-solid white on hover */
+    --glass-border: rgba(0, 0, 0, 0.08); /* Very faint border */
+    --glass-text-dark: var(--color-brand-secondary);
+    --glass-text-subtle: #7f8c8d;
+
+    /* Text Colors */
+    --color-text-dark: var(--color-brand-secondary); 
+    --color-text-subtle: var(--glass-text-subtle); 
+    --color-success: #2ecc71;
+    --color-danger: #e74c3c;
+    --color-warning: #f39c12;
+    --color-info: #3498db;
+
+    /* Shadows and Border Radii */
+    --shadow-glass: 0 4px 20px rgba(0, 0, 0, 0.1); /* Lighter, more diffuse shadow */
+    --shadow-subtle: 0 2px 10px rgba(0, 0, 0, 0.05);
+    --border-radius-main: 25px;
+    --border-radius-sm: 15px;
+}
+
+/* --- BASE STYLES --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    /* Updated Font Difference: Poppins for headings/main text, Inter for details */
+    font-family: 'Poppins', 'Inter', sans-serif; 
+    color: var(--glass-text-dark);
+    min-height: 100vh;
+    background-color: var(--color-bg-base); 
+    overflow-x: hidden;
+    transition: opacity 0.5s ease-in-out;
+}
+
+/* Initial loading state */
+body.loading { opacity: 0; visibility: hidden; }
+body.loaded { opacity: 1; visibility: visible; }
+
+/* --- BACKGROUND GRADIENT & 'BRUSH STROKES' (Unique color spots) --- */
+.background-gradient {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-bg-base);
+    z-index: -2;
+    overflow: hidden;
+}
+
+/* Simulated Brush Strokes / Radial Gradients for unique colors */
+.background-gradient::before,
+.background-gradient::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px); /* Heavy blur for soft color wash */
+    opacity: 0.7;
+    z-index: -1;
+}
+
+/* Top-Left/Center Greenish/Blue Spot (from the reference images) */
+.background-gradient::before {
+    top: -15vh;
+    left: -15vw;
+    width: 80vw;
+    height: 80vh;
+    /* Soft cyan/green color */
+    background: radial-gradient(circle, rgba(26, 188, 156, 0.25) 0%, rgba(255, 255, 255, 0) 70%);
+}
+
+/* Bottom-Right Pink/Purple Spot (from the reference images) */
+.background-gradient::after {
+    bottom: -20vh;
+    right: -20vw;
+    width: 90vw;
+    height: 90vh;
+    /* Soft magenta/red color */
+    background: radial-gradient(circle, rgba(231, 76, 60, 0.2) 0%, rgba(255, 255, 255, 0) 70%);
+    animation: pulseColor 15s ease infinite;
+}
+
+@keyframes pulseColor {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+/* --- GLASS MORPHISM BASE CLASSES (Lighter, cleaner version) --- */
+.glass-container {
+    background: var(--glass-bg-light);
+    box-shadow: var(--shadow-glass);
+    backdrop-filter: blur(20px); /* Stronger blur for better separation */
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--border-radius-main);
+    transition: all 0.3s ease;
+}
+.glass-card {
+    background: var(--glass-bg-light);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--border-radius-sm);
+    box-shadow: var(--shadow-subtle);
+    padding: 20px;
+    transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+    /* Add perspective for a subtle 3D lift */
+    transform-style: preserve-3d;
+}
+.glass-card:hover {
+    /* Slightly increase the lift/pop */
+    transform: perspective(1000px) translateY(-5px) scale(1.02); 
+    box-shadow: 0 15px 35px 0 rgba(0, 0, 0, 0.15); /* Adjusted shadow intensity */
+    background: var(--glass-bg-hover);
+    filter: brightness(1.1);
+}
+
+
+/* --- LAYOUT --- */
+.main-container {
+    margin-left: var(--sidebar-width);
+    padding: 20px 70px;
+    width: calc(100% - var(--sidebar-width));
+    min-height: 100vh;
+    transition: margin-left 0.3s ease;
+}
+
+/* --- SIDEBAR (Clean White Look) --- */
+.sidebar {
+    width: var(--sidebar-width);
+    position: fixed;
+    top: 20px;
+    left: 60px;
+    bottom: 20px;
+    padding: 25px 0 15px;
+    z-index: 100;
+    border-radius: var(--border-radius-main);
+    overflow: hidden;
+    background-color: white; /* Solid white sidebar for contrast/cleanliness */
+    box-shadow: var(--shadow-glass);
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar .logo {
+    color: var(--color-brand-secondary);
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    text-align: left;
+    margin-bottom: 30px;
+    padding: 0 30px;
+}
+
+.sidebar .logo span {
+    color: var(--color-brand-primary);
+    font-weight: 800;
+}
+
+.sidebar-menu {
+    list-style: none;
+    padding: 0 15px;
+    flex-grow: 1;
+    font-family: 'Inter', sans-serif;
+}
+
+.sidebar-menu li a {
+    display: flex;
+    align-items: center;
+    padding: 12px 15px;
+    margin: 8px 0;
+    text-decoration: none;
+    color: var(--color-text-dark);
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    border-radius: 12px;
+}
+
+.sidebar-menu li a i {
+    font-size: 1.1rem;
+    margin-right: 15px;
+    width: 20px;
+    text-align: center;
+    color: var(--glass-text-subtle);
+}
+
+.sidebar-menu li a:hover {
+    background-color: rgba(26, 188, 156, 0.1);
+    color: var(--color-brand-primary);
+}
+
+/* Active Sidebar Button Styling (Solid look, as requested in the image) */
+.sidebar-menu li a.active {
+    background: var(--color-brand-primary); /* Solid brand color background */
+    color: white;
+    font-weight: 600;
+    box-shadow: 0 4px 10px rgba(26, 188, 156, 0.4); /* Stronger shadow for pop */
+    transform: scale(1.02);
+}
+.sidebar-menu li a.active i {
+    color: white;
+}
+
+/* --- HEADER (Glassmorphism applied) --- */
+.header {
+    height: var(--header-height);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+    margin-bottom: 30px;
+    border-radius: var(--border-radius-main);
+}
+
+.header h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.7rem;
+    font-weight: 600;
+    color: var(--color-brand-secondary);
+}
+
+/* --- CONTENT STYLES --- */
+h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-brand-secondary);
+    margin-bottom: 15px;
+}
+
+h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--color-brand-primary);
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+/* Stat Cards Grid (Improved arrangement) */
+.dashboard-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+.stat-card {
+    padding: 25px;
+    border-left: 5px solid var(--color-brand-primary); 
+    /* Inherits .glass-card */
+}
+
+.stat-card h3 {
+    color: var(--glass-text-subtle);
+    font-size: 0.9rem;
+    margin: 0 0 5px 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-family: 'Inter', sans-serif;
+}
+
+.stat-value {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--color-brand-secondary);
+    letter-spacing: 0.5px;
+}
+
+/* Quick Actions Button (The specific button/card styling) */
+.quick-actions-list {
+    list-style: none;
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 0;
+    margin-bottom: 40px;
+}
+
+.quick-action-btn {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: left;
+    text-decoration: none;
+    color: var(--color-brand-secondary);
+    font-weight: 600;
+    padding: 15px 20px;
+    border-radius: var(--border-radius-sm);
+    /* Inherits .glass-card styles */
+}
+
+.quick-action-btn i {
+    margin-right: 15px;
+    font-size: 1.3rem;
+    color: var(--color-brand-primary);
+}
+
+
+/* Recent Activity Table (Cleaner, light look) */
+.data-table {
+    background: var(--glass-bg-light); 
+    border-radius: var(--border-radius-sm);
+    overflow: hidden;
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 600px;
+}
+
+.data-table thead th {
+    background-color: var(--color-brand-primary); 
+    color: white;
+    text-align: left;
+    padding: 15px;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.data-table tbody tr td {
+    padding: 15px;
+    border-bottom: 1px solid var(--glass-border); 
+    color: var(--color-text-dark);
+}
+
+.data-table tbody tr:nth-child(even) {
+    background-color: rgba(0, 0, 0, 0.03); /* Lighter stripes */
+}
+
+.data-table tbody tr:hover {
+    background-color: var(--glass-bg-hover); 
+    color: var(--color-brand-secondary);
+}
+
+/* ----------------------------------------------------- */
+/* --- NEW MODERN ACTION BUTTON STYLE FOR "Change It" --- */
+/* ----------------------------------------------------- */
+
+.btn-action-primary {
+    /* Basic Look */
+    display: inline-block;
+    font-weight: 600;
+    line-height: 1.5;
+    color: white; /* White text on primary background */
+    background-color: var(--color-brand-primary);
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    user-select: none;
+    border: none;
+    padding: 0.75rem 2rem; /* Slightly larger padding */
+    font-size: 1rem;
+    border-radius: 12px; /* Modern rounded corners */
+    transition: all 0.3s ease-in-out;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    text-decoration: none; /* In case it's an <a> tag */
+    
+    /* Subtle Shadow and Lift */
+    box-shadow: 0 4px 15px rgba(26, 188, 156, 0.4); /* Colored shadow for lift */
+}
+
+.btn-action-primary:hover {
+    /* Slightly darker on hover */
+    background-color: #16a085; /* A darker shade of #1abc9c */
+    box-shadow: 0 8px 20px rgba(26, 188, 156, 0.6); /* Deeper shadow */
+    transform: translateY(-2px); /* Subtle lift effect */
+}
+
+.btn-action-primary:active {
+    /* Press effect */
+    background-color: #117a65;
+    transform: translateY(0);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* ----------------------------------------------------- */
+/* --- MEDIA QUERIES (Responsiveness) --- */
+/* ----------------------------------------------------- */
+@media (max-width: 768px) {
+    /* Full mobile layout */
+    .sidebar {
+        width: 100%;
+        left: 0;
+        top: auto;
+        bottom: 0;
+        height: auto;
+        padding: 10px 0;
+        border-radius: 0;
+        border-top-left-radius: var(--border-radius-main);
+        border-top-right-radius: var(--border-radius-main);
+    }
+    .logo { display: none; }
+    .sidebar-menu {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: space-around;
+        padding: 0 5px;
+    }
+    .sidebar-menu li {
+        width: 20%; 
+        margin: 0;
+    }
+    .sidebar-menu li a {
+        padding: 8px 5px;
+        flex-direction: column;
+        font-size: 0.65rem;
+        border-radius: 8px;
+    }
+    .sidebar-menu li a span {
+        display: block; 
+        margin-top: 5px;
+    }
+    .sidebar-menu i {
+        margin-right: 0;
+        font-size: 1rem;
+    }
+    .main-container {
+        margin: 0;
+        width: 100%;
+        padding: 10px 15px 90px 15px; /* Adjust bottom padding for fixed nav */
+    }
+    .stat-value { font-size: 1.8rem; }
+}
+
+/* ================================================= */
+/* --- CONTAINER WIDTH ADJUSTMENT (Requested) --- */
+/* ================================================= */
+
+.main-container {
+    margin-left: var(--sidebar-width);
+    padding: 20px 70px;
+    width: calc(100% - var(--sidebar-width));
+    min-height: 100vh;
+    transition: margin-left 0.3s ease;
+    /* NEW: For Centering */
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; /* Centers inner content (Header and Content Wrapper) */
+}
+
+/* NEW: Constrain Header and Content Wrapper width */
+.header,
+.content-wrapper {
+    width: 100%; /* Take full width of parent (minus padding) */
+    max-width: 1300px; /* <--- Set your desired maximum width here (e.g., 1100px or 1300px) */
+}
+
+
+/* ================================================= */
+/* --- USER MANAGEMENT STYLES (New additions) --- */
+/* ================================================= */
+
+/* Filter Bar Container (Glassmorphism look) */
+.filter-bar {
+    background: var(--glass-bg-light);
+    padding: 20px;
+    margin-bottom: 30px;
+    border-radius: var(--border-radius-sm);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--shadow-subtle);
+    display: flex;
+    gap: 25px;
+    align-items: center;
+    flex-wrap: wrap; /* Allows wrap on smaller screens */
+}
+
+.filter-bar label {
+    font-weight: 500;
+    color: var(--color-brand-secondary);
+}
+
+.filter-bar select {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid var(--glass-text-subtle);
+    font-size: 0.95rem;
+    min-width: 150px;
+    background-color: white;
+    appearance: none; /* Hide default arrow */
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none'%3e%3cpath d='M7 10l5 5 5-5H7z' fill='%231abc9c'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 15px;
+}
+
+.filter-bar button {
+    /* Base button style (can use a common button class if you define one) */
+    background-color: var(--color-brand-primary);
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-weight: 600;
+}
+.filter-bar button:hover {
+    background-color: #16a085;
+    transform: translateY(-1px);
+}
+
+/* Table Action Buttons */
+.action-button {
+    padding: 8px 12px;
+    margin-right: 5px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    transition: opacity 0.2s, transform 0.1s;
+}
+
+.action-button i {
+    margin-right: 5px;
+    font-size: 0.9rem;
+}
+
+.btn-ban { 
+    background-color: var(--color-danger); 
+    color: white; 
+}
+.btn-ban:hover { 
+    background-color: #c0392b; 
+}
+
+.btn-unban { 
+    /* Use the view color for unban, as it's a positive/activation action */
+    background-color: var(--color-success); 
+    color: white; 
+}
+.btn-unban:hover {
+    background-color: #27ae60;
+}
+
+.btn-view { 
+    background-color: var(--color-info); 
+    color: white; 
+}
+.btn-view:hover { 
+    background-color: #2980b9; 
+}
+
+/* Custom Status Badges */
+.badge.badge-banned { 
+    background-color: var(--color-danger); 
+    color: white; 
+}
+
+/* You already have badge-success (active) and badge-warning (inactive) */
+/* --- USER PROFILE VIEW STYLES --- */
+
+/* Back Button */
+.btn-back {
+    display: inline-flex;
+    align-items: center;
+    background: none;
+    border: none;
+    color: var(--color-text-subtle);
+    font-size: 1rem;
+    margin-bottom: 25px;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+.btn-back:hover {
+    color: var(--color-brand-primary);
+}
+.btn-back i {
+    margin-right: 8px;
+}
+
+/* Profile Header Card */
+.profile-header-card {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    padding: 30px;
+    margin-bottom: 30px;
+    border-left: 5px solid var(--color-brand-primary); /* Accent line */
+}
+
+.profile-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--color-brand-primary);
+    box-shadow: 0 0 0 5px rgba(26, 188, 156, 0.1);
+}
+
+.profile-info-main h2 {
+    margin: 0 0 5px 0;
+    font-size: 1.8rem;
+    display: flex;
+    align-items: center;
+}
+.profile-info-main .badge {
+    margin-left: 10px;
+}
+.username-text {
+    margin: 0 0 5px 0;
+    font-weight: 500;
+    color: var(--glass-text-subtle);
+}
+.role-text {
+    margin: 0;
+    color: var(--glass-text-dark);
+}
+.profile-actions {
+    margin-left: auto; /* Pushes action buttons to the right */
+}
+
+/* Profile Details Grid */
+.profile-details-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 30px;
+}
+
+.detail-card h3 {
+    color: var(--color-brand-secondary);
+    border-bottom: 1px solid var(--glass-border);
+    padding-bottom: 10px;
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+}
+.detail-card h3 i {
+    color: var(--color-brand-primary);
+    margin-right: 10px;
+}
+
+.detail-group {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px dashed var(--glass-border);
+}
+.detail-group:last-child {
+    border-bottom: none;
+}
+.detail-group label {
+    font-weight: 600;
+    color: var(--color-brand-secondary);
+}
+.detail-group span {
+    color: var(--glass-text-dark);
+    text-align: right;
+}
+
+/* Responsive adjustment */
+@media (max-width: 900px) {
+    .profile-header-card {
+        flex-direction: column;
+        text-align: center;
+    }
+    .profile-actions {
+        margin-left: 0;
+        margin-top: 15px;
+    }
+    .profile-details-grid {
+        grid-template-columns: 1fr;
+    }
+}
+/* Ban/Unban buttons */
+.btn-action {
+    padding: 6px 14px;
+    border: none;
+    border-radius: 6px;
+    font-weight: 500;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    color: #fff;
+}
+
+/* Ban (danger) */
+.btn-action.btn-danger {
+    background-color: #e74c3c; /* red */
+}
+.btn-action.btn-danger:hover {
+    background-color: #c0392b;
+    transform: scale(1.05);
+}
+
+/* Unban (success) */
+.btn-action.btn-success {
+    background-color: #2ecc71; /* green */
+}
+.btn-action.btn-success:hover {
+    background-color: #27ae60;
+    transform: scale(1.05);
+}
+
+/* Disabled / inactive state (optional) */
+.btn-action:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Table adjustments */
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+}
+
+.data-table th, 
+.data-table td {
+    padding: 12px 10px;
+    text-align: left;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.data-table tbody tr:hover {
+    background-color: #f5f5f5;
+}

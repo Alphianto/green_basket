@@ -1,0 +1,155 @@
+/* orders.css - simple, responsive order list */
+:root{
+  --bg:#f7f8fa;
+  --card:#fff;
+  --muted:#666;
+  --accent:#2eb535;
+  --danger:#ff3b30;
+  --info:#007aff; /* New color for 'not-reviewed' */
+}
+
+body{background:var(--bg);font-family:Inter, Arial, sans-serif;margin:0;color:#222}
+.orders-page{max-width:1100px;margin:24px auto;padding:0 16px}
+
+/* Breadcrumb Styling */
+.breadcrumb {
+    font-size: 0.9rem;
+    color: var(--muted);
+    margin-bottom: 15px;
+}
+.breadcrumb a {
+    color: var(--accent);
+    text-decoration: none;
+}
+.breadcrumb a:hover {
+    text-decoration: underline;
+}
+.breadcrumb span {
+    font-weight: 600;
+    color: #444;
+}
+
+.orders-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;gap:12px}
+.orders-header h1{margin:0;font-size:1.6rem}
+
+/* Retain only the necessary controls for the single search bar */
+.orders-controls{display:flex;gap:12px;align-items:center} 
+
+#ordersSearch{
+    padding:10px 12px;
+    border-radius:8px;
+    border:1px solid #e0e0e0;
+    min-width:260px; 
+    flex-grow: 1; 
+}
+
+/* Base button style (retained for the "Rate & Review" link if it uses btn-primary class elsewhere) */
+.btn-primary{
+    display:inline-block;
+    padding:10px 14px;
+    background:linear-gradient(90deg,var(--accent),#239128);
+    color:#fff;
+    border-radius:8px;
+    text-decoration:none;
+    font-weight:600;
+    border:none;
+    cursor:pointer;
+}
+
+/* Removed styles for .global-search-control and #globalSearchInput */
+
+.orders-list{display:flex;flex-direction:column;gap:14px}
+.empty{background:var(--card);padding:30px;border-radius:10px;text-align:center;color:var(--muted)}
+
+.order-card{display:flex;justify-content:space-between;gap:12px;background:var(--card);padding:14px;border-radius:10px;box-shadow:0 2px 6px rgba(0,0,0,0.04);align-items:center}
+.order-left{display:flex;gap:12px;align-items:center;min-width:0}
+.thumb{flex:0 0 90px;height:90px;border-radius:8px;overflow:hidden;border:1px solid #eee}
+.thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.meta{min-width:0}
+.product-name{margin:0;font-size:1rem;white-space:nowrap;text-overflow:ellipsis;overflow:hidden}
+.seller{font-size:0.9rem;color:var(--muted);margin-top:6px}
+.seller-link{color:var(--accent);text-decoration:none}
+.quantity{font-size:0.9rem;color:#444;margin-top:6px}
+
+.order-right{text-align:right;display:flex;flex-direction:column;gap:8px;align-items:flex-end}
+.price{font-weight:700;font-size:1.05rem}
+.status{padding:4px 8px;border-radius:18px;font-size:0.85rem;font-family: Inter, Arial, sans-serif;color:#fff}
+.status-pending{background:#f0ad4e}
+.status-delivered{background:#2eb535}
+.status-cancelled{background:var(--danger)}
+.date{font-size:0.9rem;color:var(--muted)}
+
+/* Rate & Review Link Styles */
+.rate-link{
+    display:inline-block;
+    padding:6px 10px;
+    border-radius:6px;
+    text-decoration:none;
+    font-weight:600;
+    transition: background-color 0.2s;
+}
+
+/* Not Reviewed (Blue background, white text) */
+.rate-link.not-reviewed{
+    background: var(--info); /* Blue */
+    color: #fff;
+}
+.rate-link.not-reviewed:hover {
+    background: #0069d9; /* Darker blue on hover */
+}
+
+/* Reviewed (Normal background, dark text) */
+.rate-link.reviewed{
+    background:#f3f3f3;
+    color:#222;
+    cursor: default;
+    pointer-events: none; /* Make it unclickable */
+}
+
+/* Disabled/Cancelled */
+.rate-link.disabled{opacity:0.4;pointer-events:none; background:#f3f3f3; color:#222;}
+
+@media (max-width:720px){
+  .orders-header{flex-direction:column;align-items:flex-start}
+  .orders-controls{width:100%;flex-direction:column;align-items:stretch}
+  #ordersSearch {
+      min-width: unset;
+      width: 100%;
+      box-sizing: border-box;
+  }
+
+  .order-card{flex-direction:column;align-items:flex-start}
+  .order-right{text-align:left;align-self:stretch;flex-direction:row;justify-content:space-between;width:100%}
+}
+/* orders.css (Append this to the file) */
+/* orders.css */
+
+/* 1. FIX: Ensure side-by-side alignment */
+.status-action-row {
+    display: flex; /* THIS IS KEY: Enables horizontal alignment */
+    align-items: center; /* Vertically center the items */
+    gap: 8px; /* Space between the link and the status tag */
+    margin-bottom: 5px; 
+}
+
+/* 2. Style for the 'Cancel Order' link (Red Tag) */
+/* We base this styling on the existing .status class appearance */
+.cancel-order-link {
+    /* Base styling for tag appearance */
+    display: inline-block;
+    padding: 4px 8px; /* Match the padding of the status tag */
+    border-radius: 18px; /* Match the roundedness of the status tag */
+    font-size: 0.85rem; /* Match the status tag font size */
+    white-space: nowrap; /* Prevents text from wrapping */
+    
+    /* Red color scheme (matching the .status-cancelled tag) */
+    background: var(--danger); /* Use the existing red color */
+    color: #fff !important; /* White text */
+    text-decoration: none;
+    font-weight: 600; 
+    cursor: pointer;
+}
+
+.cancel-order-link:hover {
+    background: #cc3029; /* Darker red on hover */
+}

@@ -1,0 +1,1437 @@
+/* style.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* Full viewport */
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* --- Background Video --- */
+.background-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* makes video fill entire area */
+  z-index: -2;
+}
+/* --- Fade Animation --- */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
+/* --- Overlay for better text visibility --- */
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: -1;
+}
+
+/* --- Text Content --- */
+.hero-content {
+  text-align: center;
+  color: #fff;
+  z-index: 1;
+  animation: fadeIn 2s ease;
+}
+.body-sect {
+    width: 100%;
+    height: 100vh;
+    padding-top: 5%;
+}
+
+.subbody-sect {
+    width: 100%;
+    min-height: 82vh;
+    padding-top: 2%;
+}
+.subbody21 {
+    width: 100%;
+    min-height: 80vh;
+    max-height: 80vh;
+    /* padding: 9.5% 19.5% 10% 20%; adjust bottom padding */
+    display: flex;
+    flex-direction: column; /* stack children vertically */
+    align-items: center;    /* horizontal center */
+    justify-content: center; /* vertical center */
+    text-align: center;     /* ensures text inside div is centered */
+}
+
+.text-hero {
+    width: 100%;
+    height: 100%;
+    left: 197px;
+    top: 325px;
+    font-family: 'Poetsen One', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 95px;
+    line-height: 90px;
+    display: flex;
+    background: linear-gradient(102.99deg, #ffffff 51.79%, #ffffff 147.89%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-emphasis-color: transparent;
+    justify-content: center; /* center horizontally */
+    align-items: center; 
+}
+.text-hero1 {
+    width: 100%;
+    height: 100%;
+    left: 197px;
+    top: 325px;
+    font-family: 'Poetsen One', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 70px;
+    line-height: 90px;
+    display: flex;
+    background: linear-gradient(102.99deg, #3fd734 25.79%, #0c842e 147.89%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-emphasis-color: transparent;
+    margin-bottom: 28px;
+    justify-content: center; /* center horizontally */
+    align-items: center; 
+}
+
+.subbody21 p {
+    font-family: "Arial", "Helvetica", sans-serif;
+    font-size: 15px;
+    color: #fde6e6;
+    margin-bottom: 9px;
+    text-align: center; /* center paragraphs */
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .hero {
+   position: relative;
+   width: 100%;
+   height: 80vh; /* Full viewport */
+   overflow: hidden;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+ }
+ .background-video {
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   object-fit: cover; /* makes video fill entire area */
+   z-index: -2;
+ }
+  .subbody21 {
+    width: 100%;
+    min-height: 93vh;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column; 
+    align-items: center;   
+    justify-content: center; 
+    text-align: center;    
+ }
+  .subbody21 p {
+    font-size: 0.5rem;
+  }
+  .text-hero1{
+    font-size: 2.0rem;
+    line-height: 70px;
+    margin-bottom: 0px;
+    margin-top: -25px;
+  }
+  .text-hero {
+    font-size: 2.4rem;
+    line-height: 75px;
+  }
+}
+
+.site-header {
+    width: 100%;
+    padding: 2.2% 7%;
+    background-color: rgba(0, 0, 0, 0); /* fully transparent */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10; /* make sure it’s above the video */
+    position: absolute; 
+}
+
+.logo {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    line-height: 39px;
+    gap: 5px; /* small space between words */
+}
+
+.site-logo a{
+  text-decoration: none;
+}
+
+.logo-green {
+    font-family: 'Lemon', cursive;
+    font-weight: 400;
+    font-size: 30px;
+    background: linear-gradient(90deg, #38dc2c 0%, #1dcc14 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-emphasis-color: transparent;
+}
+
+.logo-basket {
+    font-family: "Arial", sans-serif;
+    font-weight: 400;
+    font-size: 28px;
+    color: #ffffff;
+}
+/* Make the list horizontal and remove list styles */
+.site-header nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+/* Ensure spacing between links */
+.site-header nav ul li {
+    margin-left: 30px; /* Increased spacing slightly */
+}
+
+/* Base style for the link: Set up the relative container */
+.nav-menu a {
+    font-family: 'Inter', sans-serif;
+    color: white; 
+    text-decoration: none;
+    font-size: 22px;
+    /* CRITICAL: Set position relative for absolute pseudo-element */
+    position: relative;
+    /* Smooth transition for link properties (like color) */
+    transition: color 0.3s ease-in-out;
+}
+
+/* 1. Create the Animated Underline using ::after */
+.nav-menu a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px; /* Position below the text */
+    
+    /* --- CRITICAL CHANGE 1: Anchor the line to the RIGHT --- */
+    left: auto; 
+    right: 0; /* Anchor the starting point to the right */
+    
+    width: 0; /* Start with zero width (the animation start state) */
+    height: 3px; /* Thickness of the underline */
+    background-color: #19b333; /* Dark Green underline color */
+    
+    /* Set up the smooth transition for the width change */
+    /* Transition is kept the same, affecting the animation speed */
+    transition: width 0.3s cubic-bezier(0.19, 1, 0.22, 1); 
+}
+
+/* 2. Hover Effect: Make the underline appear (animate width from 0 to 100%) */
+.nav-menu a:hover::after {
+    width: 100%; /* Line expands from right to left */
+    background-color: #bc2a17; /* Changed underline color to Gray on hover */
+}
+
+/* 3. Hover Effect: Change link text color */
+.nav-menu a:hover {
+    color: #6aee67; /* Optional: Slight gray for text color change on hover */
+}
+
+/*---------------- login button ------------*/
+
+/* LOGIN BUTTON */
+.login-li .btn-gradient {
+  font-family: 'Inter', sans-serif; 
+  font-weight: 400;
+  font-size: 20px;
+  color: white; /* white text */
+  background: linear-gradient(90deg, #1dcc14 0%, #38dc2c 100%); /* green gradient background */
+  border: none; /* remove outline */
+  border-radius: 20px; /* rounded edges like in figma */
+  padding: 8px 22px;
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  text-decoration: none; /* no underline */
+  transition: all 0.4s ease;
+  cursor: pointer;
+  margin-top: -6%;
+}
+
+/* Prevent link hover from nav affecting it */
+.login-li .btn-gradient::after {
+  content: none;
+}
+
+/* Hover effect — swap gradient direction */
+.login-li .btn-gradient:hover {
+  background: linear-gradient(270deg, #1dcc14 0%, #38dc2c 100%);
+  transform: scale(1.05);
+  color: white; /* keep white */
+}
+
+/* ===========================
+   LOGIN BUTTON (MATCH HEIGHT)
+=========================== */
+.login-li {
+    list-style: none;
+}
+
+.login-li .btn-gradient {
+    font-family: 'Lemon', cursive;
+    font-weight: 400;
+    font-size: 18px;
+    background: linear-gradient(90deg, #38dc2c 0%, #1dcc14 100%);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 20px;
+    text-decoration: none;
+    transition: background 0.4s ease, transform 0.2s ease;
+    display: inline-block;
+    line-height: 1.2;
+    align-items: center; /* This is already set! */
+    gap: 5px;
+}
+
+/* Gradient direction swap on hover */
+.login-li .btn-gradient:hover {
+    background: linear-gradient(270deg, #38dc2c 0%, #1dcc14 100%);
+    color: white;
+    transform: scale(1.05);
+}
+
+/* Disable global hover underline/color effects */
+.login-li .btn-gradient::after {
+    content: none;
+}
+
+/*---------------- login button end ------------*/
+
+/*---------------- Profile Dropdown Menu ------------*/
+.profile-dropdown {
+  position: relative;
+  display: inline-block;
+  margin-top: -1.5%;
+}
+
+.btn-profile-style {
+    font-family: 'Lemon', cursive;
+    font-weight: 400;
+    font-size: 18px;
+    color: white;
+    background: linear-gradient(90deg, #2abd31 0%, #5e9e27 100%);
+    border: none;
+    border-radius: 20px;
+    padding: 8px 22px;
+    transition: all 0.4s ease;
+    cursor: pointer;
+    line-height: 1.2;
+    text-decoration: none; /* Essential for the Login link */
+}
+
+.btn-profile-style:hover, .btn-profile-style:focus {
+    background: linear-gradient(270deg, #2abd31 0%, #5e9e27 100%);
+    transform: scale(1.05);
+    color: white;
+    box-shadow: none;
+}
+
+/*---------------- PROFILE SPECIFIC STYLES (For Icon) ------------*/
+
+.profile-btn {
+    /* Profile button is a <button> and needs flex for its icon */
+    display: flex; 
+    align-items: center;
+    gap: 5px;
+}
+
+/*---------------- LOGIN SPECIFIC STYLES (For List Item) ------------*/
+
+.login-li {
+    list-style: none;
+}
+
+/* Prevent link hover from nav affecting it */
+.login-li .btn-gradient::after {
+    content: none;
+}
+
+.dropdown-link-group {
+  position: absolute;
+  top: 110%;
+  right: 0;
+  width: 220px;
+  height: 235px; 
+  background: rgba(255, 255, 255, 0.05); /* almost transparent layer */
+  backdrop-filter: blur(15px); /* strong blur effect for background */
+  -webkit-backdrop-filter: blur(15px);
+  border: 1.5px solid rgba(255, 255, 255, 0.25); /* frosted edge (stroke effect) */
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3); /* depth shadow */
+  list-style: none;
+  margin: 8px 0 0 0;
+  padding: 8px -15%;
+  display: none;
+  flex-direction: column;
+  z-index: 999;
+  animation: fadeDropdown 0.2s ease;
+}
+
+/* Optional: glow edge on hover */
+.dropdown-link-group:hover {
+  border-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 8px 35px rgba(0, 255, 100, 0.25);
+}
+
+.dropdown-link-group.open {
+  display: flex;
+}
+.dropdown-link-group li a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 16px;
+  margin-left: -16%;
+  padding: 10px 22%;
+  transition: background 0.2s ease, color 0.2s ease;
+  font-family: 'Inter', sans-serif;
+}
+.dropdown-link-group li a:hover {
+  color: #19ec19;
+}
+.divider {
+  height: 1px;
+  background: #e0e0e0;
+  margin: 4px 20px;
+}
+.list-icon {
+  font-size: 18px;
+  line-height: 1;
+}
+@keyframes fadeDropdown {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.profile-dropdown .dropdown-link-group {
+    display: none; 
+}
+.profile-dropdown .dropdown-link-group.open {
+    display: flex;
+}
+.profile-dropdown:hover .dropdown-link-group {
+ 
+    display: flex;
+}
+.dropdown-icon {
+    color: white; 
+    display: inline-block !important;
+    font-size: 18px; 
+    font-weight: 900; 
+    transition: transform 0.3s ease; 
+    transform: rotate(0deg); 
+    display: inline-block; 
+    vertical-align: middle; 
+}
+
+#profileBtn.open .dropdown-icon {
+    transform: rotate(180deg) !important; 
+}
+.profile-btn:hover .dropdown-icon {
+    transform: rotate(180deg);
+}
+/*---------------- Profile Dropdown Menu End ------------*/
+/*---------------- catagory ------------*/
+.category-section {
+    padding: 70px 20px;
+    background-color: #f7f7f7;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 5.9%;
+    background-image: 
+        url('imgs/square-do.png'), 
+        url('imgs/square-do.png');    
+    background-position: 
+        right 0px top -50px,     
+        left 0px bottom -90px;         
+    background-size: 150px 150px, 150px 150px; 
+    background-repeat: no-repeat;
+    background-origin: content-box;
+}
+
+        .category-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .category-title {
+             font-family: 'Poetsen One', sans-serif;
+             font-style: normal;
+             font-weight: 100;
+             font-size: 49px;
+             display: flex;
+             background: linear-gradient(102.99deg, #3fd734 25.79%, #0c842e 147.89%);
+             -webkit-background-clip: text;
+             -webkit-text-fill-color: transparent;
+             background-clip: text;
+             text-emphasis-color: transparent;
+             margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .category-subtitle {
+            font-size: clamp(1rem, 2vw, 1.1rem);
+            color: #666;
+        }
+
+        .category-grid {
+            display: flex;
+            /* This gap creates the space between the two containers */
+            gap: 30px; 
+            justify-content: center;
+            max-width: 1000px; 
+            width: 100%; /* Ensures grid uses available width */
+            margin: 0 auto;
+        }
+
+        /* --- Styles for Image-Based Cards --- */
+.category-card.image-card {
+  border-radius: 12px; 
+  width: 300px;
+  height: 550px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  flex: 1;
+  position: relative;
+  text-decoration: none;
+  color: white;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  min-width: 0;
+}
+
+.category-card.image-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.498);
+}
+
+/* ✅ Image scaling — keeps ratio, never breaks container */
+.card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;  /* ensures image fills container without distortion */
+  object-position: center;
+  display: block;
+  /* min-height: 350px; */
+}
+
+/* ✅ Overlay with text and gradient */
+.card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 25px;
+  text-align: left;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+}
+
+.card-title {
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  color: #fff;
+  margin-bottom: 5px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.card-description {
+  font-size: clamp(0.9rem, 2vw, 1rem);
+  color: #ccc;
+  margin-bottom: 15px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.card-button {
+  align-self: flex-start;
+  padding: 10px 25px;
+  background: linear-gradient(90deg, #2eb535 0%, #5b902d 100%);
+  color: white;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.card-button:hover {
+  background: linear-gradient(270deg, #5b902d 0%, #2eb535 100%);
+  transform: translateY(-4px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+
+@media (max-width: 768px) {
+  .category-grid {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+/*---------------- catagory end ------------*/
+.site-header2 {
+   width: 100%;
+    padding: 2.2% 7%;
+    background-color: rgba(0, 0, 0, 0);
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    
+}
+.site-header2 nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+.site-header2 nav ul li {
+    margin-left: 30px;
+}
+/*---------------- header web css ----------------------*/
+.site-header1 {
+   width: 100%;
+    padding: 2.2% 7%;
+    background-color: rgba(0, 0, 0, 0);
+    position: static;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    
+}
+.logo1 {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    line-height: 39px;
+    gap: 5px;
+}
+
+.site-logo1 a {
+  text-decoration: none;
+}
+
+.logo-green1 {
+    font-family: 'Lemon', cursive;
+    font-weight: 400;
+    font-size: 30px;
+    background: linear-gradient(90deg, #38dc2c 0%, #1dcc14 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-emphasis-color: transparent;
+}
+
+.logo-basket1 {
+    font-family: "Arial", sans-serif;
+    font-weight: 400;
+    font-size: 28px;
+    color: #000000;
+}
+
+/* Navigation */
+.site-header1 nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.site-header1 nav ul li {
+    margin-left: 30px;
+}
+
+.nav-menu1 a {
+    font-family: 'Inter', sans-serif;
+    color: rgb(0, 0, 0); 
+    text-decoration: none;
+    font-size: 22px;
+    position: relative;
+    transition: color 0.3s ease-in-out;
+}
+
+.nav-menu1 a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: auto; 
+    right: 0;
+    width: 0;
+    height: 3px;
+    background-color: #19b333;
+    transition: width 0.3s cubic-bezier(0.19, 1, 0.22, 1); 
+}
+
+.nav-menu1 a:hover::after {
+    width: 100%;
+    background-color: #bc2a17;
+}
+
+.nav-menu1 a:hover {
+    color: #6aee67;
+}
+
+/* LOGIN BUTTON */
+.login-li1 .btn-gradient1 {
+  font-family: 'Inter', sans-serif; 
+  font-weight: 400;
+  font-size: 20px;
+  color: white;
+  background: linear-gradient(90deg, #1dcc14 0%, #38dc2c 100%);
+  border: none;
+  border-radius: 20px;
+  padding: 8px 22px;
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  text-decoration: none;
+  transition: all 0.4s ease;
+  cursor: pointer;
+  margin-top: -6%;
+}
+
+.login-li1 .btn-gradient1::after {
+  content: none;
+}
+
+.login-li1 .btn-gradient1:hover {
+  background: linear-gradient(270deg, #1dcc14 0%, #38dc2c 100%);
+  transform: scale(1.05);
+  color: white;
+}
+
+/* LOGIN BUTTON (MATCH HEIGHT) */
+.login-li1 {
+    list-style: none;
+}
+
+.login-li1 .btn-gradient1 {
+    font-family: 'Lemon', cursive;
+    font-weight: 400;
+    font-size: 18px;
+    background: linear-gradient(90deg, #38dc2c 0%, #1dcc14 100%);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 20px;
+    text-decoration: none;
+    transition: background 0.4s ease, transform 0.2s ease;
+    display: inline-block;
+    line-height: 1.2;
+    align-items: center;
+    gap: 5px;
+}
+
+.login-li1 .btn-gradient1:hover {
+    background: linear-gradient(270deg, #38dc2c 0%, #1dcc14 100%);
+    color: white;
+    transform: scale(1.05);
+}
+
+.login-li1 .btn-gradient1::after {
+    content: none;
+}
+
+/* PROFILE DROPDOWN */
+.profile-dropdown1 {
+  position: relative;
+  display: inline-block;
+  margin-top: -1.5%;
+}
+
+.btn-profile-style1 {
+    font-family: 'Lemon', cursive;
+    font-weight: 400;
+    font-size: 18px;
+    color: rgb(255, 255, 255);
+    background: linear-gradient(90deg, #1dcc14 0%, #38dc2c 100%);
+    border: none;
+    border-radius: 20px;
+    padding: 8px 22px;
+    transition: all 0.4s ease;
+    cursor: pointer;
+    line-height: 1.2;
+    text-decoration: none;
+}
+
+.btn-profile-style1:hover, .btn-profile-style1:focus {
+    background: linear-gradient(270deg, #1dcc14 0%, #38dc2c 100%);
+    transform: scale(1.05);
+    color: white;
+    box-shadow: none;
+}
+
+/* PROFILE BUTTON (ICON) */
+.profile-btn1 {
+    display: flex; 
+    align-items: center;
+    gap: 5px;
+}
+
+/* DROPDOWN MENU */
+.dropdown-link-group1 {
+  position: absolute;
+  top: 110%;
+  right: 0;
+  width: 220px;
+  height: 235px; 
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1.5px solid rgba(255, 255, 255, 0.25);
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  list-style: none;
+  margin: 8px 0 0 0;
+  padding: 8px -15%;
+  display: none;
+  flex-direction: column;
+  z-index: 999;
+  animation: fadeDropdown1 0.2s ease;
+}
+
+.dropdown-link-group1:hover {
+  border-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 8px 35px rgba(0, 0, 0, 0.25);
+}
+
+.dropdown-link-group1.open {
+  display: flex;
+}
+
+.dropdown-link-group1 li a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: #000000;
+  font-size: 16px;
+  margin-left: -16%;
+  padding: 10px 22%;
+  transition: background 0.2s ease, color 0.2s ease;
+  font-family: 'Inter', sans-serif;
+}
+
+.dropdown-link-group1 li a:hover {
+  color: #19ec19;
+}
+
+.divider1 {
+  height: 1px;
+  background: #9b9b9b;
+  margin: 4px 20px;
+}
+
+.list-icon1 {
+  font-size: 18px;
+  line-height: 1;
+}
+
+@keyframes fadeDropdown1 {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.profile-dropdown1 .dropdown-link-group1 {
+    display: none; 
+}
+
+.profile-dropdown1 .dropdown-link-group1.open {
+    display: flex;
+}
+
+.profile-dropdown1:hover .dropdown-link-group1 {
+    display: flex;
+}
+
+.dropdown-icon1 {
+    color: white; 
+    display: inline-block !important;
+    font-size: 18px; 
+    font-weight: 900; 
+    transition: transform 0.3s ease; 
+    transform: rotate(0deg); 
+    display: inline-block; 
+    vertical-align: middle; 
+}
+
+#profileBtn1.open .dropdown-icon1 {
+    transform: rotate(180deg) !important; 
+}
+
+.profile-btn1:hover .dropdown-icon1 {
+    transform: rotate(180deg);
+}
+/*-------------------------- end web css ----------------------*/
+
+/* ------------------------ shop f&V ------------------------ */
+
+/* ====================================
+    SHOP SECTION (MAIN CONTAINER)
+==================================== */
+.shop-section {
+    display: grid;
+    /* Define two columns: 
+        1. Fixed-width sidebar (e.g., 250px) 
+        2. Remaining space for the product grid (1fr) */
+    grid-template-columns: 250px 1fr;
+    gap: 30px;
+    padding: 40px 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+    background-color: #f7f7f7; /* Light Gray Background */
+}
+
+/* ====================================
+    SHOP PAGE HEADER & TITLE
+==================================== */
+.shop-sections{
+   width: 100%;
+   text-align: center;
+   justify-content: center ;
+   display: flex;
+   flex-direction: column;
+   position: relative;
+   padding: 40px 20px 0; /* Adjusted padding to remove bottom padding and rely on search container margin */
+   max-width: 1400px;
+   margin: 0 auto;
+   background-color: #f7f7f7; /* Light Gray Background */
+}
+.shop-title {
+    font-family: 'Poetsen One', sans-serif;
+    font-style: normal;
+    font-weight: 100;
+    width: 100%;
+    font-size: 49px;
+    filter: drop-shadow(5px 6px 6px rgba(0, 0, 0, 0.152));
+    background: linear-gradient(102.99deg, #3fd734 25.79%, #0c842e 147.89%);
+     -webkit-background-clip: text;
+     -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-emphasis-color: transparent;
+    margin-bottom: 15px;
+    font-weight: 700;
+  }
+  .shop-subtitle {
+             font-size: clamp(1.42rem, 2vw, 1.1rem);
+             font-family: "Arial", sans-serif;
+             color: #666;
+             margin-bottom: -2.7%;
+         }
+
+/* --- Search Bar Styling (Minimalist, No Background) --- */
+.search-container {
+    width: 60%; 
+    margin: 20px auto 30px; 
+    display: flex;
+    justify-content: center;
+}
+
+.search-input {
+    width: 100%;
+    max-width: 600px;
+    padding: 12px 15px;
+    font-size: 1.1rem;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    background-color: white; /* Changed from transparent for better visibility against f7f7f7 */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: #2eb535; /* Primary Green */
+    box-shadow: 0 0 0 3px rgba(46, 181, 53, 0.2);
+}
+
+
+/* ====================================
+    FILTER SIDEBAR
+==================================== */
+.filter-sidebar {
+    padding: 20px;
+    height: auto; 
+    background-color: #ffffff; /* White background for filters */
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.filter-title, .filter-group h4 {
+    color: #333; 
+    font-family: 'Inter', sans-serif; 
+    margin-bottom: 15px;
+}
+
+.filter-group {
+    border-top: 1px solid #eee; /* Lighter border */
+    padding: 15px 0;
+}
+
+.filter-group label {
+    display: block;
+    color: #666;
+    margin-bottom: 8px;
+    cursor: pointer;
+}
+
+/* Clear All Link */
+.clear-filters-link {
+    display: block;
+    text-align: right;
+    font-size: 0.9rem;
+    color: #dc3545; 
+    text-decoration: none;
+    margin-bottom: 10px;
+    font-weight: bold;
+    padding-bottom: 10px; 
+    border-bottom: 1px solid #eee;
+}
+.clear-filters-link:hover {
+    color: #c82333;
+    text-decoration: underline;
+}
+
+/* Price Range Slider */
+
+.filter-group p {
+    font-size: 0.9rem;
+    color: #6c757d;
+    margin-top: 5px;
+}
+
+
+/* Rating Filter Container (Custom Radio Buttons) */
+.rating-filter-container {
+    padding-top: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.rating-filter-container label {
+    font-size: 0.95rem;
+    color: #343a40;
+    cursor: pointer;
+    display: flex; /* Align content */
+    align-items: center;
+    gap: 5px;
+}
+
+/* Hide default radio button but keep it functional */
+.rating-filter-container input[type="radio"] {
+    display: none;
+}
+
+/* Style for custom radio button replacement */
+.rating-filter-container label::before {
+    content: '';
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border: 2px solid #2eb535; /* Primary Green Border */
+    margin-right: 5px;
+    background-color: white;
+    box-sizing: border-box;
+}
+
+.rating-filter-container input[type="radio"]:checked + label::before {
+    background-color: #2eb535;
+    box-shadow: 0 0 0 2px white, 0 0 0 4px #2eb535;
+}
+
+
+/* ====================================
+    PRODUCT LISTING (GRID)
+==================================== */
+.product-card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    position: relative; /* CRITICAL for absolute positioning of tags/badges */
+    transition: transform 0.2s ease;
+    
+    /* --- FIXED SIZE UPDATE --- */
+    width: 333.33px;
+    height: 490px;
+}
+.product-listing {
+    display: grid;
+    /* Create responsive columns, matching the fixed card width (333.33px) for exact fit. 
+       We change the minmax value to 333.33px to prevent the cards from expanding too much. */
+    grid-template-columns: repeat(auto-fit, minmax(333.33px, 1fr));
+    gap: 25px;
+}
+
+/* ====================================
+    PRODUCT CARD STYLING
+==================================== */
+.product-card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    position: relative; /* CRITICAL for absolute positioning of tags/badges */
+    transition: transform 0.2s ease;
+    width: 333.33px;
+    height: 462px;
+}
+
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Container for Image (Fixed Aspect Ratio) */
+.product-image-container {
+    height: 250px; /* Fixed height for image area */
+    width: 100%;
+    overflow: hidden;
+}
+
+.product-image {
+    width: 100%;
+    height: 100%;
+    /* Ensures images of different sizes fill the container without distortion */
+    object-fit: cover; 
+    object-position: center;
+}
+
+/* Product Details */
+.product-details {
+    padding: 15px;
+    text-align: center;
+}
+
+/* Seller Name Display */
+.product-details .seller-name {
+    font-size: 0.85rem;
+    color: #6c757d; 
+    margin-top: -5px; 
+    margin-bottom: 5px; 
+    line-height: 1.2;
+    font-family: 'Inter', Arial, sans-serif;
+}
+
+.product-details .seller-name strong {
+    font-weight: 500;
+    color: #2eb535; /* Primary Green */
+    font-family: 'Inter', Arial, sans-serif;
+}
+
+/* Product and Seller Ratings */
+.product-rating, .seller-rating {
+    font-size: 0.8rem;
+    color: #343a40;
+    margin-bottom: 3px;
+    display: block;
+    font-family: 'Inter', Arial, sans-serif;
+}
+
+.product-rating .stars, .seller-rating .stars {
+    color: gold; /* Filled star color */
+    font-size: 1rem;
+    letter-spacing: 1px;
+    font-family: 'Inter', Arial, sans-serif;
+}
+
+.product-name {
+    color: #333;
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+    font-family: 'Inter', Arial, sans-serif;
+}
+
+.price-group {
+    margin-top: 10px;
+    margin-bottom: 15px;
+    font-family: 'Inter', Arial, sans-serif;
+}
+
+.original-price {
+    color: #999;
+    text-decoration: line-through;
+    margin-right: 10px;
+    font-family: 'Inter', Arial, sans-serif;
+    
+}
+
+.current-price {
+    color: #3fd734; /* Bright Green for the main price */
+    font-weight: bold;
+    font-size: 1.1rem;
+    font-family: 'Inter', Arial, sans-serif;
+}
+
+.add-to-cart-btn {
+    background: linear-gradient(90deg, #1dcc14 0%, #38dc2c 100%);
+    color: white; 
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease; 
+    font-weight: 600;
+    font-family: 'Inter', Arial, sans-serif;
+}
+
+.add-to-cart-btn:hover {
+    background: linear-gradient(270deg, #1dcc14 0%, #38dc2c 100%);
+    transform: scale(1.05); 
+    color: white; 
+}
+/* ====================================
+    MARKED SUB-SECTIONS (Tags and Badges)
+==================================== */
+
+/* 1. Product Tag (Top-Left) */
+.product-tag {
+    position: absolute;
+    font-family: 'Inter', Arial, sans-serif;
+    top: 10px;
+    left: 10px;
+    background-color: #eee; /* Light Gray background */
+    color: #666;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    z-index: 10;
+    text-transform: uppercase;
+}
+
+/* 2. Sale Badge (Top-Right - '30% OFF' style) */
+.sale-badge {
+    position: absolute;
+    font-family: 'Inter', Arial, sans-serif;
+    top: 10px;
+    right: 10px;
+    background-color: #ff4d4d; /* Red for Sales */
+    color: white;
+    padding: 5px 10px;
+    border-radius: 20px; /* Pill shape */
+    font-size: 0.8rem;
+    font-weight: bold;
+    z-index: 10;
+}
+
+
+/* ====================================
+    Responsiveness
+==================================== */
+@media (max-width: 992px) { 
+    /* Stack the sidebar and product listing vertically on smaller screens */
+    .shop-section {
+        grid-template-columns: 1fr; /* Single column */
+        gap: 20px;
+    }
+
+    .filter-sidebar {
+        height: auto; /* Allow height to adjust when stacked */
+    }
+
+    .search-container {
+        width: 90%; /* Increase search bar width on smaller screens */
+    }
+
+    .product-listing {
+        /* Allow cards to be slightly smaller on smaller devices */
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+}
+
+/* ====================================
+    filter section css start
+==================================== */
+
+/* ================= Filter Controls Styling ================= */
+
+        .search-input {
+            /* Applying the search icon as a background image */
+            background-image: url("../style/imgs/search.png");
+            background-repeat: no-repeat;
+            background-position: 12px center; /* Position the icon 12px from the left */
+            background-size: 18px 18px;
+            padding-left: 5%; /* Set icon size */
+        }
+
+/* General styling for filter select and number input */
+.filter-group select,
+.filter-group input[type="number"] {
+    width: 100%;
+    padding: 10px 12px;
+    font-size: 1rem;
+    border: 1.5px solid #ccc;
+    border-radius: 8px;
+    background-color: #fff;
+    color: #333;
+    outline: none;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif; 
+}
+
+.filter-group select:focus,
+.filter-group input[type="number"]:focus {
+    border-color: #2eb535;
+    box-shadow: 0 0 5px rgba(46, 181, 53, 0.3);
+}
+.price-slider {
+            /* Resetting default appearance for better styling control */
+            -webkit-appearance: none;
+            appearance: none;
+            width: 100%;
+            height: 6px;
+            border-radius: 5px;
+            /* Base background, will be overwritten by dynamic inline gradient from JS */
+            background: #ddd;
+            outline: none;
+            margin: 10px 0;
+            transition: all 0.3s ease;
+        }
+
+        /* Webkit (Chrome/Safari) Thumb */
+        .price-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #2eb535;
+            cursor: pointer;
+            border: 2px solid #19b333;
+            /* This margin is crucial to center the thumb over the track */
+            margin-top: -7px;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        .price-slider::-webkit-slider-thumb:hover {
+            background: #19b333;
+            transform: scale(1.1);
+        }
+
+        /* Firefox Thumb */
+        .price-slider::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #2eb535;
+            cursor: pointer;
+            border: 2px solid #19b333;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        .price-slider::-moz-range-thumb:hover {
+            background: #19b333;
+            transform: scale(1.1);
+        }
+
+        /* Webkit Track */
+        .price-slider::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 6px;
+            border-radius: 5px;
+        }
+
+        /* Firefox Track */
+        .price-slider::-moz-range-track {
+            width: 100%;
+            height: 6px;
+            border-radius: 5px;
+        }
+
+        /* Display current price value */
+        #priceValue {
+            font-weight: bold;
+            color: #2eb535;
+        }
+
+        /* Headings inside filter group */
+        .filter-group h4 {
+            margin-bottom: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #333;
+        }
+
+        /* Small responsive adjustments */
+        @media (max-width: 768px) {
+            .filter-group select,
+            .filter-group input[type="number"] {
+                font-size: 0.95rem;
+                padding: 8px 10px;
+            }
+            .price-slider {
+                height: 5px;
+            }
+            .price-slider::-webkit-slider-thumb,
+            .price-slider::-moz-range-thumb {
+                width: 16px;
+                height: 16px;
+            }
+            /* Adjust margin for smaller thumb to keep it centered on the track */
+            .price-slider::-webkit-slider-thumb {
+                margin-top: -5.5px;
+            }
+        }
+/* ====================================
+    filter section css end
+==================================== */

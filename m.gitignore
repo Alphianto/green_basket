@@ -1,0 +1,10 @@
+# Database credentials
+session/connection.php
+
+# WAMP/server files
+*.log
+*.bak
+
+# OS files
+.DS_Store
+Thumbs.db

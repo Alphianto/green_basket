@@ -1,0 +1,8 @@
+RewriteEngine On
+
+# If it's not a real file or directory
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+
+# Rewrite to PHP file but keep the POST body
+RewriteRule ^(.*)$ $1.php [L,QSA]

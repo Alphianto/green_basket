@@ -1,0 +1,417 @@
+/* --- Global Styles --- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+.paymet {
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f6f9;
+    color: #333;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    min-height: 100vh;
+}
+
+.payment-container {
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 450px;
+    font-family: 'Inter', sans-serif;
+    padding: 30px;
+}
+
+/* --- Header & Summary --- */
+.payment-header {
+    text-align: center;
+    margin-bottom: 25px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 15px;
+}
+
+.payment-header h2 {
+    color: #1a7d3c; /* Green theme */
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.product-summary {
+    font-size: 0.95em;
+    color: #666;
+}
+
+/* --- Total Summary Card --- */
+.total-summary-card {
+    background-color: #e6f7ea; /* Light green background */
+    padding: 15px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    border: 1px solid #b7e3c1;
+}
+
+.total-summary-card h3 {
+    margin: 0;
+    font-weight: 600;
+    color: #1a7d3c;
+    font-size: 1.1em;
+}
+
+#finalTotalAmount {
+    font-size: 1.5em;
+    font-weight: 700;
+    color: #38a169; /* Darker green */
+}
+
+.cod-fee-info {
+    font-size: 0.8em;
+    color: #999;
+    text-align: right;
+    margin-top: 5px;
+    flex-basis: 100%;
+}
+
+/* --- Payment Method Selector --- */
+.method-selector-group {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 25px;
+    padding: 5px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.method-option {
+    flex-grow: 1;
+    text-align: center;
+    padding: 10px 5px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 0.85em;
+    font-weight: 600;
+    color: #555;
+}
+
+.method-option input[type="radio"] {
+    display: none;
+}
+
+.method-option:hover {
+    border-color: #b7e3c1;
+    background-color: #f7fff9;
+}
+
+.method-option input[type="radio"]:checked + i {
+    color: #1a7d3c;
+}
+
+.method-option input[type="radio"]:checked ~ i,
+.method-option input[type="radio"]:checked {
+    color: #1a7d3c;
+}
+
+.method-option input[type="radio"]:checked {
+    border-color: #1a7d3c;
+    background-color: #e6f7ea;
+    box-shadow: 0 0 0 2px #1a7d3c33;
+}
+
+/* --- Payment Details Sections --- */
+.payment-details-section {
+    padding: 10px 0;
+    transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
+    max-height: 500px; /* Large enough to show content */
+    opacity: 1;
+}
+
+.payment-details-section.hidden {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    padding: 0;
+}
+
+.section-title {
+    color: #1a7d3c;
+    border-bottom: 1px dashed #eee;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+    font-size: 0.9em;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+    transition: border-color 0.2s;
+}
+
+.form-group input:focus {
+    border-color: #38a169;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(56, 161, 105, 0.2);
+}
+
+.form-row {
+    display: flex;
+    gap: 15px;
+}
+
+.form-row .form-group {
+    flex: 1;
+}
+
+.validation-error {
+    display: block;
+    color: #e53e3e;
+    font-size: 0.8em;
+    margin-top: 4px;
+    min-height: 1.2em;
+}
+
+.upi-note, .cod-note {
+    background-color: #f7fff9;
+    border: 1px solid #b7e3c1;
+    padding: 10px;
+    border-radius: 6px;
+    font-size: 0.9em;
+    color: #1a7d3c;
+    margin-top: 15px;
+}
+
+/* --- Button & Messages --- */
+.pay-button {
+    width: 100%;
+    padding: 12px 20px;
+    background-color: #1a7d3c;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: 700;
+    margin-top: 20px;
+    transition: background-color 0.2s, transform 0.1s;
+    box-shadow: 0 4px 10px rgba(26, 125, 60, 0.4);
+}
+
+.pay-button:hover {
+    background-color: #156230;
+    box-shadow: 0 6px 15px rgba(26, 125, 60, 0.5);
+}
+
+.pay-button:active {
+    transform: translateY(2px);
+}
+
+.message-box {
+    padding: 10px;
+    border-radius: 6px;
+    margin-top: 15px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 0.95em;
+    display: none;
+}
+
+.message-box.success {
+    background-color: #e6fffa;
+    color: #38a169;
+    border: 1px solid #38a169;
+}
+
+.message-box.error {
+    background-color: #fff5f5;
+    color: #e53e3e;
+    border: 1px solid #e53e3e;
+}
+
+/* ===== Popup Modal (Common) ===== */
+#successModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(20, 20, 20, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease-in-out;
+}
+
+#successModal.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-content {
+  background: #ffffff;
+  border-radius: 16px;
+  text-align: center;
+  padding: 40px 30px;
+  width: 420px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  animation: popIn 0.35s ease-out;
+  position: relative;
+}
+
+/* Smooth entrance */
+@keyframes popIn {
+  0% {
+    transform: scale(0.85);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* ===== Success and Error Icons ===== */
+.success-icon-container {
+  width: 90px;
+  height: 90px;
+  background: #e8f8ef;
+  border-radius: 50%;
+  margin: 0 auto 20px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.success-icon {
+  color: #27ae60;
+  font-size: 42px;
+}
+
+.error-icon {
+  color: #e74c3c;
+  font-size: 42px;
+  animation: shake 0.35s ease-in-out;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+/* ===== Modal Text ===== */
+#modalMessage {
+  font-size: 15px;
+  color: #444;
+  margin-top: 10px;
+}
+
+.modal-content h2 {
+  color: #27ae60;
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.modal-content h2.error-title {
+  color: #e74c3c;
+}
+
+/* ===== Retry / Continue Buttons ===== */
+.retry-btn, .continue-btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 24px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.retry-btn {
+  background-color: #e74c3c;
+  color: #fff;
+}
+
+.retry-btn:hover {
+  background-color: #c0392b;
+}
+
+.continue-btn {
+  background-color: #27ae60;
+  color: #fff;
+}
+
+.continue-btn:hover {
+  background-color: #1e8e4e;
+}
+
+/* Optional subtle pulse for attention */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.04); }
+  100% { transform: scale(1); }
+}
+
+/* modal base (if not already present) */
+#successModal { position: fixed; inset: 0; display:flex; align-items:center; justify-content:center; background:rgba(20,20,20,0.55); z-index:9999; opacity:0; pointer-events:none; transition:opacity .25s ease; }
+#successModal.visible { opacity:1; pointer-events:auto; }
+#successModal .modal-content { width:420px; background:#fff; border-radius:14px; padding:34px 28px; box-shadow:0 12px 30px rgba(0,0,0,0.18); text-align:center; }
+
+/* retry button style specific to modal */
+#successModal .retry-btn {
+  background-color: #e74c3c;
+  color: #fff;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background .15s ease, transform .12s ease;
+  outline: none;
+}
+#successModal .retry-btn:hover { background-color: #c0392b; transform: translateY(-1px); }
+
+/* ensure retry button overrides other global button styles */
+#successModal .retry-btn,
+#successModal .retry-btn * { -webkit-appearance: none; appearance: none; }
+
+/* small styling for error title and icons (if not present) */
+#successModal h2.error-title { color: #e74c3c; }
+.success-icon { color: #27ae60; font-size: 44px; }
+.error-icon { color: #e74c3c; font-size: 44px; }
+

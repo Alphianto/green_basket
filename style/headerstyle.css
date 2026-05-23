@@ -1,0 +1,270 @@
+.site-header1 {
+    width: 100%;
+    padding: 2.2% 7%;
+    background-color: rgba(0, 0, 0, 0); /* fully transparent */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10; /* make sure it’s above the video */
+    position: absolute; 
+}
+
+.logo-basket1 {
+    font-family: "Arial", sans-serif;
+    font-weight: 400;
+    font-size: 28px;
+    color: #ffffff;
+}
+/* Base style for the link: Set up the relative container */
+.nav-menu a {
+    font-family: 'Inter', sans-serif;
+    color: rgb(255, 255, 255); 
+    text-decoration: none;
+    font-size: 22px;
+    /* CRITICAL: Set position relative for absolute pseudo-element */
+    position: relative;
+    /* Smooth transition for link properties (like color) */
+    transition: color 0.3s ease-in-out;
+}
+
+/* 1. Create the Animated Underline using ::after */
+.nav-menu a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px; /* Position below the text */
+    
+    /* --- CRITICAL CHANGE 1: Anchor the line to the RIGHT --- */
+    left: auto; 
+    right: 0; /* Anchor the starting point to the right */
+    
+    width: 0; /* Start with zero width (the animation start state) */
+    height: 3px; /* Thickness of the underline */
+    background-color: #19b333; /* Dark Green underline color */
+    
+    /* Set up the smooth transition for the width change */
+    /* Transition is kept the same, affecting the animation speed */
+    transition: width 0.3s cubic-bezier(0.19, 1, 0.22, 1); 
+}
+
+/* 2. Hover Effect: Make the underline appear (animate width from 0 to 100%) */
+.nav-menu a:hover::after {
+    width: 100%; /* Line expands from right to left */
+    background-color: #bc2a17; /* Changed underline color to Gray on hover */
+}
+
+/* 3. Hover Effect: Change link text color */
+.nav-menu a:hover {
+    color: #6aee67; /* Optional: Slight gray for text color change on hover */
+}
+
+/*---------------- login button ------------*/
+
+/* LOGIN BUTTON */
+.login-li .btn-gradient {
+  font-family: 'Inter', sans-serif; 
+  font-weight: 400;
+  font-size: 20px;
+  color: white; /* white text */
+  background: linear-gradient(90deg, #1dcc14 0%, #38dc2c 100%); /* green gradient background */
+  border: none; /* remove outline */
+  border-radius: 20px; /* rounded edges like in figma */
+  padding: 8px 22px;
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  text-decoration: none; /* no underline */
+  transition: all 0.4s ease;
+  cursor: pointer;
+  margin-top: -6%;
+}
+
+/* Prevent link hover from nav affecting it */
+.login-li .btn-gradient::after {
+  content: none;
+}
+
+/* Hover effect — swap gradient direction */
+.login-li .btn-gradient:hover {
+  background: linear-gradient(270deg, #1dcc14 0%, #38dc2c 100%);
+  transform: scale(1.05);
+  color: white; /* keep white */
+}
+
+/* ===========================
+   LOGIN BUTTON (MATCH HEIGHT)
+=========================== */
+.login-li {
+    list-style: none;
+}
+
+.login-li .btn-gradient {
+    font-family: 'Lemon', cursive;
+    font-weight: 400;
+    font-size: 18px;
+    background: linear-gradient(90deg, #38dc2c 0%, #1dcc14 100%);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 20px;
+    text-decoration: none;
+    transition: background 0.4s ease, transform 0.2s ease;
+    display: inline-block;
+    line-height: 1.2;
+    align-items: center; /* This is already set! */
+    gap: 5px;
+}
+
+/* Gradient direction swap on hover */
+.login-li .btn-gradient:hover {
+    background: linear-gradient(270deg, #38dc2c 0%, #1dcc14 100%);
+    color: white;
+    transform: scale(1.05);
+}
+
+/* Disable global hover underline/color effects */
+.login-li .btn-gradient::after {
+    content: none;
+}
+
+/*---------------- login button end ------------*/
+
+/*---------------- Profile Dropdown Menu ------------*/
+.profile-dropdown {
+  position: relative;
+  display: inline-block;
+  margin-top: -1.5%;
+}
+
+.btn-profile-style {
+    font-family: 'Lemon', cursive;
+    font-weight: 400;
+    font-size: 18px;
+    color: white;
+    background: linear-gradient(90deg, #1dcc14 0%, #38dc2c 100%);
+    border: none;
+    border-radius: 20px;
+    padding: 8px 22px;
+    transition: all 0.4s ease;
+    cursor: pointer;
+    line-height: 1.2;
+    text-decoration: none; /* Essential for the Login link */
+}
+
+.btn-profile-style:hover, .btn-profile-style:focus {
+    background: linear-gradient(270deg, #1dcc14 0%, #38dc2c 100%);
+    transform: scale(1.05);
+    color: white;
+    box-shadow: none;
+}
+
+/*---------------- PROFILE SPECIFIC STYLES (For Icon) ------------*/
+
+.profile-btn {
+    /* Profile button is a <button> and needs flex for its icon */
+    display: flex; 
+    align-items: center;
+    gap: 5px;
+}
+
+/*---------------- LOGIN SPECIFIC STYLES (For List Item) ------------*/
+
+.login-li {
+    list-style: none;
+}
+
+/* Prevent link hover from nav affecting it */
+.login-li .btn-gradient::after {
+    content: none;
+}
+
+.dropdown-link-group {
+  position: absolute;
+  top: 110%;
+  right: 0;
+  width: 220px;
+  height: 235px; 
+  background: rgba(255, 255, 255, 0.05); /* almost transparent layer */
+  backdrop-filter: blur(15px); /* strong blur effect for background */
+  -webkit-backdrop-filter: blur(15px);
+  border: 1.5px solid rgba(255, 255, 255, 0.25); /* frosted edge (stroke effect) */
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3); /* depth shadow */
+  list-style: none;
+  margin: 8px 0 0 0;
+  padding: 8px -15%;
+  display: none;
+  flex-direction: column;
+  z-index: 999;
+  animation: fadeDropdown 0.2s ease;
+}
+
+/* Optional: glow edge on hover */
+.dropdown-link-group:hover {
+  border-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 8px 35px rgba(0, 255, 100, 0.25);
+}
+
+.dropdown-link-group.open {
+  display: flex;
+}
+.dropdown-link-group li a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 16px;
+  margin-left: -16%;
+  padding: 10px 22%;
+  transition: background 0.2s ease, color 0.2s ease;
+  font-family: 'Inter', sans-serif;
+}
+.dropdown-link-group li a:hover {
+  color: #19ec19;
+}
+.divider {
+  height: 1px;
+  background: #e0e0e0;
+  margin: 4px 20px;
+}
+.list-icon {
+  font-size: 18px;
+  line-height: 1;
+}
+@keyframes fadeDropdown {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.profile-dropdown .dropdown-link-group {
+    display: none; 
+}
+.profile-dropdown .dropdown-link-group.open {
+    display: flex;
+}
+.profile-dropdown:hover .dropdown-link-group {
+ 
+    display: flex;
+}
+.dropdown-icon {
+    color: white; 
+    display: inline-block !important;
+    font-size: 18px; 
+    font-weight: 900; 
+    transition: transform 0.3s ease; 
+    transform: rotate(0deg); 
+    display: inline-block; 
+    vertical-align: middle; 
+}
+
+#profileBtn.open .dropdown-icon {
+    transform: rotate(180deg) !important; 
+}
+.profile-btn:hover .dropdown-icon {
+    transform: rotate(180deg);
+}
