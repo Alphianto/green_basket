@@ -52,7 +52,7 @@ footer {
 
 .footer-logo .logo-basket {
   color: var(--footer-text-strong);
-  font-family: "Arial", sans-serif;
+  font-family:  'Playfair Display', Georgia, serif;
 }
 
 .footer-tagline {

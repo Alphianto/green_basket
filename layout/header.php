@@ -63,7 +63,7 @@
 
 .logo-basket {
   color: var(--cream);
-  font-family: "Arial", sans-serif;
+  font-family:  'Playfair Display', Georgia, serif;
 }
 
 /* ── Nav ── */
